@@ -1,0 +1,681 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input{
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* MODULE 1: HEADER */
+
+.header {
+    min-height: 62px;
+    padding: 5px 12px 5px 24px;
+    display: flex;
+    position: fixed;
+    align-items:center;
+    gap: 12px;
+    background: #000;
+    position: relative;
+    z-index: 20;
+}
+
+.spotify-logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.home-button {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: #242424;
+    color: white;
+    font-size: 21px;
+}
+
+.search-box {
+    height: 50px;
+    width: min(500px, 36vw);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 16px;
+    border-radius: 30px;
+    background: #242424;
+    color: #b3b3b3;
+}
+
+.search-box:focus-within {
+    outline: 2px solid white;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+}
+
+.search-box input::placeholder {
+    color: #b3b3b3;
+}
+
+.search-divider {
+    width: 1px;
+    height: 25px;
+    background: #727272;
+    flex-shrink: 0;
+}
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.nav-links a,
+.install-link,
+.signup-link {
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-links a:hover,
+.install-link:hover,
+.signup-link:hover {
+    color: white;
+}
+
+.header-divider {
+    width: 1px;
+    height: 26px;
+    background: #777;
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+.install-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+
+.login-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #000;
+    padding: 16px 28px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
+/* MODULE 2: SIDEBAR AND MAIN LAYOUT */
+
+.page-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    min-height: calc(100vh - 140px);
+    height: auto;
+    padding: 0 8px 8px 3px;
+}
+
+.sidebar {
+    width: 25%;
+    min-width: 250px;
+    max-width: 450px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 17px 8px 24px;
+    border-radius: 10px;
+    background: #121212;
+}
+
+.library-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+}
+
+.library-heading h3 {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.create-button {
+    border: none;
+    border-radius: 25px;
+    background: #242424;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.sidebar-card {
+    background: #202020;
+    padding: 20px;
+    border-radius: 9px;
+}
+
+.sidebar-card h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.sidebar-card p {
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.white-button {
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 11px 17px;
+}
+
+.white-button:hover,
+.login-button:hover,
+.banner-button:hover {
+    transform: scale(1.03);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px 17px 8px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px 16px;
+    margin-bottom: 32px;
+}
+
+.footer-links a {
+    font-size: 11px;
+    color: #b3b3b3;
+}
+
+.language-button {
+    padding: 8px 13px;
+    background: transparent;
+    border: 1px solid #777;
+    border-radius: 22px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    overflow: visible;
+    border-radius: 10px;
+    background: linear-gradient(#291106 0, #121212 250px);
+    padding: 26px 32px 45px;
+}
+
+.music-section {
+    margin-bottom: 56px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+
+.section-heading a {
+    color: #b3b3b3;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.section-heading a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
+/* MODULE 3: SONG CARDS */
+
+.song-list,
+.artist-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+}
+
+.song-list::-webkit-scrollbar,
+.artist-list::-webkit-scrollbar {
+    display: none;
+}
+
+.song-card {
+    flex: 0 0 170px;
+    min-width: 0;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.song-card:hover,
+.artist-card:hover {
+    background: #242424;
+}
+
+.song-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+
+.song-card h3,
+.artist-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 5px;
+}
+
+.song-card p,
+.artist-card p {
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* MODULE 4: ARTIST CARDS */
+
+.artist-card {
+    flex: 0 0 170px;
+    min-width: 0;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.artist-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 12px;
+}
+
+
+/* MODULE 5: FULL PAGE FOOTER */
+
+.site-footer {
+    background: #121212;
+    margin: 0 8px 95px 3px;
+    padding: 45px 24px;
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    gap: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-column h3 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.footer-column a {
+    color: #b3b3b3;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.footer-column a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #242424;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    background: #3e3e3e;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    border-top: 1px solid #292929;
+    padding-top: 30px;
+    margin-top: 20px;
+    text-align: right;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+
+/* MODULE 6: FIXED SIGN-UP BANNER */
+
+.preview-banner {
+    position: fixed;
+    left: 3px;
+    right: 6px;
+    bottom: 0;
+    z-index: 30;
+    min-height: 70px;
+    padding: 12px 25px 12px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: linear-gradient(100deg, #b82ba3, #5099f4);
+}
+
+.preview-banner h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.preview-banner p {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.banner-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 185px;
+    padding: 16px 28px;
+    border-radius: 30px;
+    background: white;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .header-divider,
+    .install-link {
+        display: none;
+    }
+
+    .sidebar {
+        width: 280px;
+        min-width: 220px;
+    }
+
+    .main-content {
+        padding: 24px 18px 45px;
+    }
+
+    .site-footer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .social-links {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .header {
+        min-height: 60px;
+        padding: 6px 12px;
+        gap: 10px;
+    }
+
+    .spotify-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .home-button {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+    .search-box {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        height: 42px;
+        gap: 9px;
+        padding: 0 12px;
+    }
+
+    .search-box input {
+        font-size: 13px;
+    }
+
+    .search-divider,
+    .search-box .fa-layer-group,
+    .nav-links,
+    .header-divider,
+    .install-link,
+    .signup-link {
+        display: none;
+    }
+
+    .login-button {
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+
+    .page-layout {
+        display: block;
+        min-height: 0;
+        padding: 0 5px 5px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 23px 12px 45px;
+    }
+
+    .music-section {
+        margin-bottom: 38px;
+    }
+
+    .section-heading {
+        margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .song-list,
+    .artist-list {
+        gap: 8px;
+    }
+
+    .song-card,
+    .artist-card {
+        flex: 0 0 145px;
+        padding: 8px;
+    }
+
+    .song-card h3,
+    .artist-card h3 {
+        font-size: 14px;
+    }
+
+    .song-card p,
+    .artist-card p {
+        font-size: 12px;
+    }
+
+    .site-footer {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 0 5px 95px;
+        padding: 30px 20px;
+    }
+
+    .social-links {
+        grid-column: auto;
+    }
+
+    .copyright {
+        text-align: left;
+    }
+
+    .preview-banner {
+        left: 0;
+        right: 0;
+        min-height: 70px;
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .preview-banner h4 {
+        font-size: 12px;
+    }
+
+    .preview-banner p {
+        font-size: 11px;
+    }
+
+    .banner-button {
+        min-width: 0;
+        padding: 12px 14px;
+        font-size: 11px;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 390px) {
+    .home-button {
+        display: none;
+    }
+
+    .login-button {
+        padding: 11px 12px;
+    }
+
+    .preview-banner {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .preview-banner p {
+        font-size: 10px;
+    }
+
+    .banner-button {
+        padding: 11px;
+        font-size: 10px;
+    }
+}
